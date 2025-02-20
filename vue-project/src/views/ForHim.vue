@@ -1,10 +1,12 @@
 <script setup></script>
 <template>
     <div class="about">
-      <h1>This is For Him page</h1>
+        <h1>This is For Him page</h1>
     </div>
-  </template>
+</template>
 
-  <style>
-
-  </style>
+<style scoped>
+    h1 {
+        color: #724423;
+    }
+</style>

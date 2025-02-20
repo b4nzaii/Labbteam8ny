@@ -33,7 +33,7 @@ a {
 /*Adding lines under links in nav when active*/
 a:hover {
   text-decoration: underline;
-  color: #4e4d55;
+  color: #724423;
   font-weight: bold;
 }
 
