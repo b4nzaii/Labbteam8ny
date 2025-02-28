@@ -68,6 +68,7 @@
 .logo {
   max-height: 70px;
   cursor: pointer;
+  border-radius: 10px;
 }
 .nav-links a:hover {
   color: #f57f1e;
