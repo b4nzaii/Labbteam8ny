@@ -12,12 +12,12 @@ const router = createRouter({
       component: Home,
     },
     {
-      path: "/for_her",
+      path: "/for-her",
       name: "ForHer",
       component: ForHer,
     },
     {
-      path: "/for_him",
+      path: "/for-him",
       name: "ForHim",
       component: ForHim,
     },
