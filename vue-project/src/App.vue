@@ -1,6 +1,7 @@
 <script setup>
 import Header from "./components/Header.vue";
 import HeroImage from "./components/HeroImage.vue";
+import footerPage from "./components/footerPage.vue";
 /**import ForHim from "./components/ForHim.vue";*/
 </script>
 
@@ -8,6 +9,7 @@ import HeroImage from "./components/HeroImage.vue";
   <Header />
   <HeroImage />
   <!-- här kommer nav/header renderas -->
+  <footerPage />
   <RouterView />
 </template>
 
