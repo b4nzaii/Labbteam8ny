@@ -1,6 +1,6 @@
 <template>
-    <div class="about">
-        <h1 class="section-title">For Her</h1>
+  <div class="about">
+    <h1 class="section-title">For Her</h1>
 
     <div class="product-row">
       <div v-for="product in products" :key="product.id" class="product-item">
@@ -13,10 +13,10 @@
         </div>
       </div>
     </div>
-    </div>
+  </div>
 </template>
 
-<script >
+<script>
 export default {
   data() {
     return {
@@ -49,9 +49,9 @@ export default {
     };
   },
   methods: {
-    goToProduct(productId){
-        this.$router.push({name: "ProductDetails", params: {id: productId}}) //osäker på om det här fungerar
-    }
+    goToProduct(productId) {
+      this.$router.push({ name: "ProductDetails", params: { id: productId } }); //osäker på om det här fungerar
+    },
   },
 };
 </script>
@@ -99,7 +99,7 @@ export default {
 }
 
 @media (max-width: 768px) {
-    .section-title {
+  .section-title {
     font-size: 28px;
   }
 
