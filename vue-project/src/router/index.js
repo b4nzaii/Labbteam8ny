@@ -23,7 +23,7 @@ const router = createRouter({
       component: ForHim,
     },
     {
-      path: "/product/:id",
+      path: "/produkt/:id",
       name: "ProductDetails",
       component: ProductDetails,
     },

@@ -14,14 +14,14 @@ export default {
 <style scoped>
 .hero-section {
   width: 100%;
-  max-height: 32vh;
+  max-height: 26vh;
   overflow: hidden;
   margin: 0;
   padding: 0;
 }
 .hero-image {
   width: 100%;
-  height: auto;
+  height: 300px;
   display: block;
   object-fit: cover;
 }

@@ -8,7 +8,9 @@
       </nav>
       <!--Loggan i mitten av navbaren likt Zalando-->
       <div class="header-center">
-        <img src="@/assets/zalando8.jpg" class="logo" />
+        <router-link to="/">
+          <img src="@/assets/zalando8.jpg" class="logo" />
+        </router-link>
       </div>
       <!--Och till höger så ska jag ha ikoner + text -->
       <div class="header-right">
