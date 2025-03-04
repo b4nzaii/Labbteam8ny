@@ -3,10 +3,14 @@
     <h1 class="section-title">For Her</h1>
 
     <div class="product-row">
-      <div v-for="product in products" :key="product.id" class="product-item">
-        <div @click="goToProduct(product.id)">
-          <img :src="product.image" alt="product.name" />
-        </div>
+      <div
+        v-for="product in products"
+        :key="product.id"
+        class="product-item"
+        @click="goToProduct(product.id)"
+      >
+        <img :src="product.image" :alt="product.name" />
+
         <div>
           <p class="product-name">{{ product.name }}</p>
           <p class="product-price">{{ product.price }}</p>
@@ -17,40 +21,50 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
+  name: "ForHer",
   data() {
     return {
-      products: [
-        {
-          id: 1,
-          name: "produkt 1",
-          price: "123:-",
-          image: "https://placehold.co/280x400/png",
-        },
-        {
-          id: 2,
-          name: "produkt 2",
-          price: "$123:-",
-          image: "https://placehold.co/280x400/png",
-        },
-        {
-          id: 3,
-          name: "produkt 3",
-          price: "123:-",
-          image: "https://placehold.co/280x400/png",
-        },
-        {
-          id: 4,
-          name: "produkt 4",
-          price: "123:-",
-          image: "https://placehold.co/280x400/png",
-        },
-      ],
+      products: [],
     };
   },
+  mounted() {
+    this.fetchProducts();
+  },
   methods: {
+    fetchProducts() {
+      const categories = [
+        "womens-dresses",
+        "womens-shoes",
+        "womens-bags",
+        "womens-jewellery",
+        "womens-watches",
+      ];
+      // Skapa en array med axios‑anrop för varje kategori
+      const requests = categories.map((category) =>
+        axios.get(
+          `https://dummyjson.com/products/category/${category}?limit=30`
+        )
+      );
+      // Kör alla anrop parallellt med Promise.all
+      Promise.all(requests).then((responses) => {
+        let allProducts = [];
+        responses.forEach((response) => {
+          const mapped = response.data.products.map((product) => ({
+            id: product.id,
+            name: product.title, // Mappning: "title" -> "name"
+            price: product.price,
+            image: product.thumbnail, // Använder "thumbnail" som bild
+          }));
+          allProducts = allProducts.concat(mapped);
+        });
+        // Tilldelar den sammanslagna arrayen till products
+        this.products = allProducts;
+      });
+    },
     goToProduct(productId) {
-      this.$router.push({ name: "ProductDetails", params: { id: productId } }); //osäker på om det här fungerar
+      this.$router.push({ name: "ProductDetails", params: { id: productId } });
     },
   },
 };
@@ -64,7 +78,6 @@ export default {
   text-align: center;
   margin-bottom: 40px;
 }
-
 .product-row {
   display: flex;
   flex-wrap: wrap;
@@ -72,13 +85,15 @@ export default {
 }
 
 .product-item {
-  width: auto;
+  flex: 1 1 350px;
+  max-width: 400px;
   padding: 8px 8px;
   border-radius: 8px;
   background-color: #fff;
   transition: transform 0.3s ease-in-out;
   text-align: center;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .product-item:hover {

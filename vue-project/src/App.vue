@@ -1,16 +1,17 @@
 <script setup>
 import Header from "./components/Header.vue";
 import HeroImage from "./components/HeroImage.vue";
-import footerPage from "./components/footerPage.vue";
-/**import ForHim from "./components/ForHim.vue";*/
+import footerPage from "./components/FooterPage.vue";
 </script>
 
 <template>
-  <Header />
-  <HeroImage />
-  <!-- här kommer nav/header renderas -->
+  <div id="main-content">
+    <Header />
+    <HeroImage />
+    <!-- här kommer nav/header renderas -->
+    <RouterView />
+  </div>
   <footerPage />
-  <RouterView />
 </template>
 
 <style scoped></style>
