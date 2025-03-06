@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     addItemToCart(product) {
-      this.cart.push(product);
+      this.cart.push({ ...product, quantity: 1 });
     },
     navigateTo(page) {
       this.page = page;
