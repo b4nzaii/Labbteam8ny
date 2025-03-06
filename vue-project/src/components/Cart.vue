@@ -1,9 +1,9 @@
 <template>
-  <div class="cart">
+  <div class="cart" v-if="page === 'cart'">
     <h2>🛒 Din Varukorg</h2>
 
     <ul v-if="cart.length > 0">
-      <li v-for="(item, index) in cart" :key="index">
+      <li v-for="(product, index) in cart" :key="index">
         <span>{{ product.name }} - {{ product.price }} kr</span>
 
         <div class="quantity">
@@ -42,9 +42,19 @@ export default {
       );
     },
   },
+  data() {
+    return {
+      page: "ForHer",
+      page: "ForHim",
+      cart: [],
+    };
+  },
   methods: {
-    addItemToCard(product) {
+    addItemToCart(product) {
       this.cart.push(product);
+    },
+    navigateTo(page) {
+      this.page = page;
     },
     updateQuantity(index, change) {
       if (this.cart[index].quantity + change > 0) {
@@ -63,6 +73,7 @@ export default {
       this.$emit("clear-cart");
     },
   },
+  components: {},
 };
 </script>
 
