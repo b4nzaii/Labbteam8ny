@@ -1,5 +1,5 @@
 <template>
-  <div class="cart" v-if="page === 'cart'">
+  <div class="cart">
     <h2>🛒 Din Varukorg</h2>
 
     <ul v-if="cart.length > 0">
