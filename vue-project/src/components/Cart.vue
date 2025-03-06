@@ -73,7 +73,6 @@ export default {
       this.$emit("clear-cart");
     },
   },
-  components: {},
 };
 </script>
 
