@@ -3,8 +3,8 @@
     <!--Övre rad alltså (For her, for him, logga samt iktoner)-->
     <div class="top-nav">
       <nav class="nav-links">
-        <router-link to="for-her">For her</router-link>
-        <router-link to="for-him">For him</router-link>
+        <router-link to="/for-her">For her</router-link>
+        <router-link to="/for-him">For him</router-link>
       </nav>
       <!--Loggan i mitten av navbaren likt Zalando-->
       <div class="header-center">
