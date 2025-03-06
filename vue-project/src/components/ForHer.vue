@@ -13,7 +13,7 @@
 
         <div>
           <p class="product-name">{{ product.name }}</p>
-          <p class="product-price">{{ product.price }}</p>
+          <p class="product-price">{{ product.price }} :-</p>
         </div>
       </div>
     </div>
@@ -47,13 +47,13 @@ export default {
           `https://dummyjson.com/products/category/${category}?limit=30`
         )
       );
-      // Kör alla anrop parallellt med Promise.all
+      // Kör alla anrop parallellt
       Promise.all(requests).then((responses) => {
         let allProducts = [];
         responses.forEach((response) => {
           const mapped = response.data.products.map((product) => ({
             id: product.id,
-            name: product.title, // Mappning: "title" -> "name"
+            name: product.title, // denna Mappning menas: "title" -> "name"
             price: product.price,
             image: product.thumbnail, // Använder "thumbnail" som bild
           }));
