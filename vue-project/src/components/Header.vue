@@ -20,7 +20,7 @@
         </div>
         <div class="icon-text">
           <i class="fas fa-shopping-cart"></i>
-          <span> Varukorg</span>
+          <button v-on:click="navigateTo('cart')">Varukorg</button>
         </div>
       </div>
     </div>

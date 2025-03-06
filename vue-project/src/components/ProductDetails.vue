@@ -14,7 +14,7 @@
 
       <p class="description">{{ product.description }}</p>
 
-      <button class="add-to-cart" @click="addToCart">
+      <button class="add-to-cart" v-on:click="addItemToCart(product)">
         <!--- För Maowlidans cart funktion-->
         Lägg till i varukorg
       </button>

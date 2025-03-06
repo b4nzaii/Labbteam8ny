@@ -4,15 +4,17 @@
 
     <ul v-if="cart.length > 0">
       <li v-for="(item, index) in cart" :key="index">
-        <span>{{ item.name }} - {{ item.price }} kr</span>
+        <span>{{ product.name }} - {{ product.price }} kr</span>
 
         <div class="quantity">
           <button @click="updateQuantity(index, -1)">➖</button>
-          <span>{{ item.quantity }}</span>
+          <span>{{ product.quantity }}</span>
           <button @click="updateQuantity(index, 1)">➕</button>
         </div>
 
-        <button class="remove-btn" @click="removeFromCart(index)">❌</button>
+        <button class="remove-btn" @click="removeFromCart(index)">
+          Remove
+        </button>
       </li>
     </ul>
 
@@ -41,6 +43,9 @@ export default {
     },
   },
   methods: {
+    addItemToCard(product) {
+      this.cart.push(product);
+    },
     updateQuantity(index, change) {
       if (this.cart[index].quantity + change > 0) {
         this.cart[index].quantity += change;
