@@ -1,6 +1,6 @@
 <template>
   <div class="main-container">
-    <h1 class="section-title">Home</h1>
+    <h1 class="section-title">POPULÄRT JUST NU</h1>
     <div class="content-container">
       <div class="slideshow-container">
         <!-- Transition wrapper for fade effect -->
@@ -15,12 +15,11 @@
           />
         </transition>
       </div>
-      <div class="text-container">
+      <!--<div class="text-container">
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum,
-          corporis.
+          Hitta din nästa favorit
         </p>
-      </div>
+      </div>-->
     </div>
   </div>
 </template>
@@ -44,9 +43,13 @@ export default {
     fetchProducts() {
       const categories = [
         "womens-dresses",
+        "mens-clothing",
         "womens-shoes",
+        "mens-shirts",
         "womens-bags",
+        "mens-shoes",
         "womens-jewellery",
+        "mens-watches",
         "womens-watches",
       ];
       // Skapa en array med axios‑anrop för varje kategori
@@ -84,7 +87,7 @@ export default {
 
 <style scoped>
 .main-container {
-  background-color: rgba(255, 166, 0, 0.308);
+  background-color: rgb(250, 201, 110);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -106,6 +109,7 @@ export default {
   justify-content: center;
   align-items: center;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .slideshow-container {
@@ -129,12 +133,14 @@ export default {
   flex: 1;
   padding: 20px;
   text-align: left;
+  min-width: 200px;
 }
 
 .text-container p {
-  font-size: 1.2rem;
+  font-size: 38px;
+  font-weight: 600;
   line-height: 1.6;
-  color: #000000;
+  color: #333;
   margin: 0;
 }
 
@@ -147,5 +153,41 @@ export default {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .content-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .slideshow-container {
+    width: 80vw;
+    height: 30vh;
+  }
+
+  .text-container p {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 22px;
+  }
+
+  .slideshow-container {
+    width: 90vw;
+    height: 25vh;
+  }
+
+  .text-container p {
+    font-size: 20px;
+  }
 }
 </style>
