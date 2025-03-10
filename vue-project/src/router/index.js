@@ -29,10 +29,10 @@ const router = createRouter({
       component: ProductDetails,
     },
     {
-      path: "/cart",
+      path: "/Cart",
       name: "Cart",
-      component: Cart
-    }
+      component: Cart,
+    },
   ],
 });
 

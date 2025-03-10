@@ -20,7 +20,10 @@
         </div>
         <div class="icon-text">
           <i class="fas fa-shopping-cart"></i>
-          <button v-on:click="navigateTo('cart')">Varukorg</button>
+          <div>
+            {{ Cart.length }} in cart
+            <button @click="navigateTo('products')">Varukorg</button>
+          </div>
         </div>
       </div>
     </div>
