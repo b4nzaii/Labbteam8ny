@@ -21,7 +21,7 @@
         <div class="icon-text">
           <i class="fas fa-shopping-cart"></i>
           <div>
-            {{ Cart.lenght }} in cart
+            {{ Cart.length }} in cart
             <button @click="navigateTo('products')">Varukorg</button>
           </div>
         </div>

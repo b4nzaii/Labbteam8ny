@@ -9,7 +9,7 @@ import Cart from "./components/Cart.vue";
   <div id="main-content">
     <Header />
     <HeroImage />
-    <cart />
+
     <!-- här kommer nav/header renderas -->
     <RouterView />
   </div>

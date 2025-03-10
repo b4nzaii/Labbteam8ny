@@ -58,11 +58,11 @@ export default {
         this.cart.push({ ...product, quantity: 1 });
       }
     },
-    increaseQuantity(product) {
+    increaseQuantity() {
       const product = this.cart.find((product) => product.id === product.id);
       if (product) product.quantity++;
     },
-    decreaseQuantity(product) {
+    decreaseQuantity() {
       const product = this.cart.find((product) => product.id === product.id);
       if (product.quantity > 1) {
         product.quantity--;
