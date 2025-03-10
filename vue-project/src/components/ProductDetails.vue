@@ -100,7 +100,7 @@ export default {
   display: inline-block;
   margin-top: 1rem;
   text-decoration: none;
-  color: rgb(27, 176, 226);
+  color: rgb(0, 0, 0);
   font-weight: bold;
   font-size: 1.5rem;
   margin-left: 35px;

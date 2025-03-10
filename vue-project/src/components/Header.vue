@@ -3,13 +3,13 @@
     <!--Övre rad alltså (For her, for him, logga samt iktoner)-->
     <div class="top-nav">
       <nav class="nav-links">
-        <router-link to="for-her">For her</router-link>
-        <router-link to="for-him">For him</router-link>
+        <router-link to="/for-her">For her</router-link>
+        <router-link to="/for-him">For him</router-link>
       </nav>
       <!--Loggan i mitten av navbaren likt Zalando-->
       <div class="header-center">
         <router-link to="/">
-          <img src="@/assets/zalando8.jpg" class="logo" />
+          <img src="@/assets/zolondo.jpg" class="logo" />
         </router-link>
       </div>
       <!--Och till höger så ska jag ha ikoner + text -->
@@ -46,8 +46,8 @@
 .site-header {
   display: flex;
   flex-direction: column; /** Ska vara två rader (top-nav) och (sub-nav) */
-  background-color: white;
-  border-bottom: 4px solid #e2dddd;
+  background-color: rgb(250, 201, 110);
+  border-bottom: 4px solid #2c3e50;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 /** Övre raden */
@@ -88,8 +88,8 @@
 }
 /**Nedre raden */
 .sub-nav {
-  border-top: 2px solid lightgray;
-  border-bottom: 2px solid lightgray;
+  border-top: 2px solid #2c3e50;
+  border-bottom: 2px solid #2c3e50;
   padding: 0.5rem;
 }
 .sub-nav ul {
