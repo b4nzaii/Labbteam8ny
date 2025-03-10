@@ -6,6 +6,7 @@ body,
   padding: 0;
   display: flex;
   flex-direction: column;
+  background-color: rgba(250, 201, 110);
 }
 
 #main-content {
