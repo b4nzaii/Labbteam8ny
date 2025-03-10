@@ -9,12 +9,11 @@ import Cart from "./components/Cart.vue";
   <div id="main-content">
     <Header />
     <HeroImage />
+    <cart />
     <!-- här kommer nav/header renderas -->
     <RouterView />
   </div>
-  <div v-if="page === 'cart'">
-    <Cart :cart="cart" />
-  </div>
+
   <footerPage />
 </template>
 

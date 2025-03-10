@@ -1,124 +1,149 @@
 <template>
-  <div class="cart">
-    <h2>🛒 Din Varukorg</h2>
+  <div class="container">
+    <h1 class="title">Shopping Cart</h1>
+    <div class="product-list">
+      <div v-for="product in products" :key="product.id" class="product-card">
+        <h2>{{ product.name }}</h2>
+        <p>Price: ${{ product.price }}</p>
+        <button @click="addToCart(product)">Add to Cart</button>
+      </div>
+    </div>
 
-    <ul v-if="cart.length > 0">
-      <li v-for="(product, index) in cart" :key="index">
-        <span>{{ product.name }} - {{ product.price }} kr</span>
-
-        <div class="quantity">
-          <button @click="updateQuantity(index, -1)">➖</button>
-          <span>{{ product.quantity }}</span>
-          <button @click="updateQuantity(index, 1)">➕</button>
-        </div>
-
-        <button class="remove-btn" @click="removeFromCart(index)">
-          Remove
-        </button>
-      </li>
-    </ul>
-
-    <p v-else>Varukorgen är tom.</p>
-
-    <h3 v-if="cart.length > 0">
-      Totalt: <strong>{{ totalPrice }} kr</strong>
-    </h3>
-
-    <button v-if="cart.length > 0" class="checkout-btn" @click="checkout">
-      ✅ Slutför köp
-    </button>
+    <h2 class="cart-title">Your Cart</h2>
+    <div v-if="cart.length === 0" class="empty-cart">Your cart is empty</div>
+    <div v-else class="cart">
+      <div v-for="product in cart" :key="product.id" class="cart-item">
+        <span
+          >{{ product.name }} - ${{ product.price }} x
+          {{ product.quantity }}</span
+        >
+        <button @click="increaseQuantity(product)">+</button>
+        <button @click="decreaseQuantity(product)">-</button>
+        <button @click="removeFromCart(product)" class="remove">Remove</button>
+      </div>
+      <p class="total">Total: ${{ totalPrice }}</p>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "CartComponent",
-  props: ["cart"],
+  data() {
+    return {
+      products: [
+        {
+          name: "{{product.name}}",
+          price: "{{product.price}}",
+        },
+      ],
+      cart: [],
+    };
+  },
   computed: {
     totalPrice() {
       return this.cart.reduce(
-        (sum, item) => sum + item.price * item.quantity,
+        (sum, product) => sum + product.price * product.quantity,
         0
       );
     },
   },
-  data() {
-    return {
-      page: "ForHer",
-      page: "ForHim",
-      cart: [],
-    };
-  },
   methods: {
-    addItemToCart(product) {
-      this.cart.push({ ...product, quantity: 1 });
-    },
-    navigateTo(page) {
-      this.page = page;
-    },
-    updateQuantity(index, change) {
-      if (this.cart[index].quantity + change > 0) {
-        this.cart[index].quantity += change;
+    addToCart(product) {
+      const existingItem = this.cart.find(
+        (product) => product.id === product.id
+      );
+      if (existingItem) {
+        existingItem.quantity++;
       } else {
-        this.removeFromCart(index);
+        this.cart.push({ ...product, quantity: 1 });
       }
-      this.$emit("update-cart", this.cart);
     },
-    removeFromCart(index) {
-      this.cart.splice(index, 1);
-      this.$emit("update-cart", this.cart);
+    increaseQuantity(product) {
+      const product = this.cart.find((product) => product.id === product.id);
+      if (product) product.quantity++;
     },
-    checkout() {
-      alert("Tack för ditt köp! 🎉");
-      this.$emit("clear-cart");
+    decreaseQuantity(product) {
+      const product = this.cart.find((product) => product.id === product.id);
+      if (product.quantity > 1) {
+        product.quantity--;
+      } else {
+        this.removeFromCart(product);
+      }
+    },
+    removeFromCart(product) {
+      this.cart = this.cart.filter((product) => product.id !== product.id);
     },
   },
 };
 </script>
 
-<style scoped>
-.cart {
-  max-width: 400px;
+<style>
+.container {
+  max-width: 800px;
   margin: auto;
-  padding: 15px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  background: #f9f9f9;
   text-align: center;
+  font-family: Arial, sans-serif;
 }
-ul {
-  list-style: none;
-  padding: 0;
+.title,
+.cart-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
-li {
+.product-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.product-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  width: 200px;
+}
+.product-card:hover {
+  transform: scale(1.05);
+}
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 5px;
+}
+button:hover {
+  background-color: #0056b3;
+}
+.cart {
+  border-top: 2px solid #ccc;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+.cart-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
-  background: #fff;
   padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #ddd;
 }
-.quantity {
-  display: flex;
-  align-items: center;
-  gap: 5px;
+.remove {
+  background-color: #dc3545;
 }
-button {
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  background: green;
-  color: white;
-  border-radius: 4px;
+.remove:hover {
+  background-color: #c82333;
 }
-.remove-btn {
-  background: red;
-}
-.checkout-btn {
+.total {
+  font-size: 18px;
+  font-weight: bold;
   margin-top: 15px;
-  background: blue;
-  padding: 10px 15px;
+}
+.empty-cart {
+  font-style: italic;
+  color: #777;
 }
 </style>
