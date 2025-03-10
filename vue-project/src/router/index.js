@@ -3,6 +3,7 @@ import Home from "../components/Home.vue";
 import ForHer from "@/components/ForHer.vue";
 import ForHim from "@/components/ForHim.vue";
 import ProductDetails from "@/components/ProductDetails.vue";
+import Cart from "@/components/Cart.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -27,6 +28,11 @@ const router = createRouter({
       name: "ProductDetails",
       component: ProductDetails,
     },
+    {
+      path: "/cart",
+      name: "Cart",
+      component: Cart
+    }
   ],
 });
 

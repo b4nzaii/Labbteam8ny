@@ -88,7 +88,7 @@ export default {
   max-width: 400px;
   padding: 8px 8px;
   border-radius: 8px;
-  background-color: #fff;
+  background-color: rgb(250, 201, 110);
   transition: transform 0.3s ease-in-out;
   text-align: center;
   overflow: hidden;
