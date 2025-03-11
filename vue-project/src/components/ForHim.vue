@@ -68,8 +68,6 @@ export default {
 </script>
 
 <style scoped>
-.about {
-}
 .section-title {
   font-size: 38px;
   font-weight: 600;

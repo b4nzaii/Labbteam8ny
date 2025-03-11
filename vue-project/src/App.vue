@@ -2,7 +2,6 @@
 import Header from "./components/Header.vue";
 import HeroImage from "./components/HeroImage.vue";
 import footerPage from "./components/FooterPage.vue";
-import Cart from "./components/Cart.vue";
 </script>
 
 <template>

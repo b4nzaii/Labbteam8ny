@@ -20,9 +20,8 @@
         </div>
         <div class="icon-text">
           <i class="fas fa-shopping-cart"></i>
-          <div>
-            {{ Cart.length }} in cart
-            <button @click="navigateTo('products')">Varukorg</button>
+          <div class="nav-links">
+            <router-link to="/cart">Varukorg</router-link>
           </div>
         </div>
       </div>
@@ -64,7 +63,7 @@
   display: flex;
   gap: 2rem;
 }
-.nav-links a {
+.nav-links a, .cart-button {
   text-decoration: none;
   color: #333;
   font-weight: 600;
@@ -118,6 +117,7 @@
 .icon-text i {
   font-size: 1.2rem;
   margin-bottom: 0.25rem;
+  text-decoration: none;
 }
 .icon-text span {
   font-size: 0.9rem; /** Kör snäppet mindre text här */

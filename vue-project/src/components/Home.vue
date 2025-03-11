@@ -182,8 +182,8 @@ export default {
   }
 
   .slideshow-container {
-    width: 90vw;
-    height: 25vh;
+    width: 75%;
+    height: 75%;
   }
 
   .text-container p {
